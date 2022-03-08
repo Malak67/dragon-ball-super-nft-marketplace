@@ -2,7 +2,7 @@
   "manifestVersion": "3.2",
   "admin": {
     "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "txHash": "0x2c66d22311d9874998eec0aa2866ea867e8ec736d68c95d2ad1a20235126df2a"
+    "txHash": "0x2887b92e6f9267d9b8d0c83f5d28793fcafb9ca2ee2b7c9e86cc36944d5c5ce4"
   },
   "proxies": [
     {
@@ -122,19 +122,19 @@
     },
     {
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0xe00e12471a4add58a554b4f7e27c5b4231b21b960b5c7ee929e85b688bcff5e8",
+      "txHash": "0x8be4c6d1ec7bd8535f368e769521fe379c131957d4b405c85f67aba94e7ab322",
       "kind": "transparent"
     },
     {
       "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
-      "txHash": "0x09f96c577eafccc8533e8113bfbfe0b4d105ccba61928aa9f5a581ce66ef5841",
+      "txHash": "0x97828263fe1e1ca92e3782a2f1dc085a9ee1a0e146f5d8245720e5ea11550ada",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "59bb942ad5fca7d6e7e1600d3ddff02fa5194c96ccabf9439e8c8d069ea2feca": {
+    "a6801a09b6aa7606a06847849dc7b2784168cd30a9097658c7c38b4c2bfdcc56": {
       "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "txHash": "0x30f4cec724b0b94d137fd65b623f9af18bd4e2b90a27debfe85e59b362e7679a",
+      "txHash": "0xa2cf504d9335514fdc540bb1f7ae0f6e28339883c232971369f665b7cbbb8887",
       "layout": {
         "storage": [
           {
@@ -238,9 +238,9 @@
         }
       }
     },
-    "897386c9c41431d24a1e56832d6c3715355408d3cbbac1f53d23dedaa0a56212": {
+    "6e263a974eef0222027483849090bc1551a71e6326499966949acf4347893f3b": {
       "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-      "txHash": "0x6952eb1e14e00c30e8f6e8f9372b23c58758e704cf4815b01e2c90521de25cb0",
+      "txHash": "0x32cdfbc19b6f38195b5db99a59bb4e2529dc3e3422bc1a938a44f20ccb209831",
       "layout": {
         "storage": [
           {
@@ -407,7 +407,7 @@
             "label": "_tokenIdCounter",
             "offset": 0,
             "slot": "301",
-            "type": "t_struct(Counter)3049_storage",
+            "type": "t_struct(Counter)3765_storage",
             "contract": "DragonBallSuperLedger",
             "src": "contracts\\DragonBallSuperLedger.sol:19"
           },
@@ -423,7 +423,7 @@
             "label": "communityToken",
             "offset": 0,
             "slot": "303",
-            "type": "t_contract(ERC20)2918",
+            "type": "t_contract(ERC20)3634",
             "contract": "DragonBallSuperLedger",
             "src": "contracts\\DragonBallSuperLedger.sol:22"
           },
@@ -458,7 +458,7 @@
           "t_bool": {
             "label": "bool"
           },
-          "t_contract(ERC20)2918": {
+          "t_contract(ERC20)3634": {
             "label": "contract ERC20"
           },
           "t_mapping(t_address,t_bool)": {
@@ -485,7 +485,7 @@
           "t_string_storage": {
             "label": "string"
           },
-          "t_struct(Counter)3049_storage": {
+          "t_struct(Counter)3765_storage": {
             "label": "struct Counters.Counter",
             "members": [
               {

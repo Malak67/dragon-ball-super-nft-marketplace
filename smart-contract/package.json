@@ -9,7 +9,10 @@
     "deploy:ropsten": "npx hardhat run --network ropsten scripts/deploy.ts",
     "deploy:kovan": "npx hardhat run --network kovan scripts/deploy.ts",
     "deploy:rinkeby": "npx hardhat run --network rinkeby scripts/deploy.ts",
-    "deploy:local": "npx hardhat run --network localhost scripts/deploy.ts"
+    "deploy:local": "npx hardhat run --network localhost scripts/deploy.ts",
+    "verify:ropsten": "npx hardhat verify --network ropsten",
+    "verify:kovan": "npx hardhat verify --network kovan",
+    "verify:rinkeby": "npx hardhat verify --network rinkeby"
   },
   "keywords": [],
   "author": "",
