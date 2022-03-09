@@ -1,45 +1,49 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import logo from './logo.svg';
+import './App.css';
+import { useEthers } from '@usedapp/core';
+import { Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { theme } from './theme';
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    justifyContent: "flex-end",
+  },
+}))
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const classes = useStyles()
+  const { account, activateBrowserWallet, deactivate } = useEthers();
+  console.log('ACCOUNT: ', account)
+  const isConnected = account !== undefined;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+    <div className='App'>
+      <header className='App-header'>
+        <div className={classes.container}>
+          {isConnected ? (
+            <>
+              <Button color='primary' variant='contained'>
+                {`${account?.slice(0, 4)}...${account?.slice(-3)}`}
+              </Button>
+              <Button variant='contained' onClick={deactivate}>
+                Disconnect
+              </Button>
+            </>
+          ) : (
+            <Button
+              color='primary'
+              variant='contained'
+              onClick={() => activateBrowserWallet()}
+            >
+              Connect
+            </Button>
+          )}
+        </div>
+        <img src={logo} className='App-logo' alt='logo' />
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
