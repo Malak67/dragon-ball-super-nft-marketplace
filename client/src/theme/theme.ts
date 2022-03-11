@@ -37,9 +37,9 @@ const lightTheme: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: '0',
-          padding: '8px 24px',
+          padding: '8px 16px',
           fontSize: '15px',
-          lineHeight: '34px',
+          lineHeight: '30px',
           width: 'auto'
         },
       },

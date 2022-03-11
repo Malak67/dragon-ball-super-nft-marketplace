@@ -9,7 +9,7 @@ import { DBSThemeProvider } from './theme';
 import { ChainId, Config, DAppProvider } from '@usedapp/core';
 
 const config: Config = {
-  readOnlyChainId: ChainId.Rinkeby,
+  readOnlyChainId: ChainId.Kovan,
   readOnlyUrls: {
     [ChainId.Rinkeby]: `${import.meta.env.VITE_RINKEBY_RPC_URL}`,
     [ChainId.Kovan]: `${import.meta.env.VITE_KOVAN_RPC_URL}`,

@@ -5,7 +5,7 @@ import { Signer, utils, Contract, ContractFactory, Overrides } from "ethers";
 import { Provider, TransactionRequest } from "@ethersproject/providers";
 import type {
   DragonBallSuperLedger,
-  DragonBallSuperLedgerInterface,
+  dbsLedgerInterface,
 } from "../DragonBallSuperLedger";
 
 const _abi = [
@@ -611,8 +611,8 @@ export class DragonBallSuperLedger__factory extends ContractFactory {
   public readonly contractName: "DragonBallSuperLedger";
   static readonly bytecode = _bytecode;
   static readonly abi = _abi;
-  static createInterface(): DragonBallSuperLedgerInterface {
-    return new utils.Interface(_abi) as DragonBallSuperLedgerInterface;
+  static createInterface(): dbsLedgerInterface {
+    return new utils.Interface(_abi) as dbsLedgerInterface;
   }
   static connect(
     address: string,

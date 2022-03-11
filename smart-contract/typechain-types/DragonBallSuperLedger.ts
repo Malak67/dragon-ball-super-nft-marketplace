@@ -17,7 +17,7 @@ import { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
 import { Listener, Provider } from "@ethersproject/providers";
 import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
 
-export interface DragonBallSuperLedgerInterface extends utils.Interface {
+export interface dbsLedgerInterface extends utils.Interface {
   contractName: "DragonBallSuperLedger";
   functions: {
     "_tokenIdCounter()": FunctionFragment;
@@ -264,7 +264,7 @@ export interface DragonBallSuperLedger extends BaseContract {
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
 
-  interface: DragonBallSuperLedgerInterface;
+  interface: dbsLedgerInterface;
 
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,

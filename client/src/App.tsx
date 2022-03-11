@@ -1,47 +1,21 @@
-import logo from './logo.svg';
+import { Box, Button } from '@mui/material';
 import './App.css';
-import { useEthers } from '@usedapp/core';
-import { Button } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { theme } from './theme';
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    justifyContent: "flex-end",
-  },
-}))
+import { Navigation } from './components';
+import { useEnableMint, useMintEnabled } from './components/hooks';
 
 function App() {
-  const classes = useStyles()
-  const { account, activateBrowserWallet, deactivate } = useEthers();
-  console.log('ACCOUNT: ', account)
-  const isConnected = account !== undefined;
+  const { state, send } = useEnableMint();
+  const mintEnabled = useMintEnabled();
+  console.log('mintEnabled: ', mintEnabled);
+  console.log('state: ', state);
   return (
     <div className='App'>
-      <header className='App-header'>
-        <div className={classes.container}>
-          {isConnected ? (
-            <>
-              <Button color='primary' variant='contained'>
-                {`${account?.slice(0, 4)}...${account?.slice(-3)}`}
-              </Button>
-              <Button variant='contained' onClick={deactivate}>
-                Disconnect
-              </Button>
-            </>
-          ) : (
-            <Button
-              color='primary'
-              variant='contained'
-              onClick={() => activateBrowserWallet()}
-            >
-              Connect
-            </Button>
-          )}
-        </div>
-        <img src={logo} className='App-logo' alt='logo' />
-      </header>
+      <Navigation />
+      <Box>
+        <Button variant='contained' onClick={() => send(!mintEnabled)}>
+          {mintEnabled ? 'Disabled' : 'Enable'}
+        </Button>
+      </Box>
     </div>
   );
 }
