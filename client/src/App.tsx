@@ -1,14 +1,16 @@
-import { Box } from '@mui/material';
+import { Routes, Route } from 'react-router-dom';
+import MainLayout from './components/MainLayout/MainLayout';
+import { Home, Test } from './pages';
+import { PageNotFound } from './pages/PageNotFound';
 import './App.css';
-import { Navigation, TestDapp } from './components';
 
-function App() {
-  return (
-    <div className='App'>
-      <Navigation />
-      <TestDapp />
-    </div>
-  );
-}
-
+const App = () => (
+  <Routes>
+    <Route path='/' element={<MainLayout />}>
+      <Route path='/' element={<Home />} />
+      <Route path='test' element={<Test />} />
+      <Route path='*' element={<PageNotFound />} />
+    </Route>
+  </Routes>
+);
 export default App;

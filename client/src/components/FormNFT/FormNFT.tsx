@@ -1,5 +1,5 @@
 import { FC } from 'react';
 
 export const FormNFT: FC = () => {
-  return;
-}
+  return <p>Form</p>;
+};

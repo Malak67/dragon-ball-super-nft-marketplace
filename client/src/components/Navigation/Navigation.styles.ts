@@ -10,6 +10,10 @@ export const useStyles = makeStyles(() => {
       justifyContent: 'space-between',
       alignItems: 'center',
     },
+    logo: {
+      height: '7vmin',
+      pointerEvents: 'none',
+    },
     auth: {
       display: 'flex',
       justifyContent: 'center',

@@ -14,8 +14,10 @@
     "@mui/material": "^5.5.0",
     "@mui/styles": "^5.5.0",
     "@usedapp/core": "^0.11.0",
+    "ipfs-http-client": "^56.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.27.1",
     "react-router-dom": "^6.2.2",
     "react-toastify": "^8.2.0"
   },
