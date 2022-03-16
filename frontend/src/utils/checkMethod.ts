@@ -1,4 +1,6 @@
-export const checkMethod = (method: (() => void) | undefined): boolean | null => {
+export const checkMethod = (
+  method: (() => void) | undefined
+): boolean | null => {
   if (typeof method === 'function') {
     method();
     return true;

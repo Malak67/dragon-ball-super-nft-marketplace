@@ -1,5 +1,5 @@
-import { Box, Button } from '@mui/material';
 import React, { FC } from 'react';
+import { Box, Button } from '@mui/material';
 import { FormInputFile, FormInputText, FormTextareaInput } from '../form';
 import { useFormNFTEffects } from './FormNFT.effects';
 

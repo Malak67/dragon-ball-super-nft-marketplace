@@ -3,7 +3,6 @@ import { Falsy } from '@usedapp/core/dist/esm/src/model/types';
 import DragonBallSuperLedger from '../blockchain/DragonBallSuperLedger.json';
 import { ledgerAddress } from '../constants';
 import { utils } from 'ethers';
-import { formatUnits } from '@ethersproject/units';
 
 export const useMintPrice = () => {
   const { account } = useEthers();
@@ -21,5 +20,5 @@ export const useMintPrice = () => {
           args: [], // Method arguments
         }
     ) ?? [];
-  return mintPrice ? formatUnits(mintPrice, 18) : null;
+  return mintPrice;
 };

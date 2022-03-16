@@ -1,5 +1,5 @@
 import React from 'react';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
 import {
   Box,
@@ -8,19 +8,19 @@ import {
   Typography,
   CircularProgress,
 } from '@mui/material';
-import { checkMethod } from '../../../utils';
 import { useStyles } from './FormInputFile.styles';
 
 export interface FormInputFileProps {
   isLoading: boolean;
   name: string;
   id: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>;
   accept: string;
   label: string;
   buttonText: string;
   className?: string;
-  valueChanged?: () => void;
+  valueChanged?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   onUpload?: () => void;
 }
@@ -65,7 +65,9 @@ export const FormInputFile: FC<FormInputFileProps> = ({
                   onBlur={onBlur}
                   onChange={(e) => {
                     onChange(e);
-                    checkMethod(valueChanged);
+                    if (typeof valueChanged !== 'undefined') {
+                      valueChanged(e);
+                    }
                   }}
                 />
                 <label htmlFor={id}>

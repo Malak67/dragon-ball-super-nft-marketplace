@@ -69,7 +69,7 @@ export const TestDapp: FC = () => {
               User Balance: {formatUnits(userBalance, 18)}
             </Typography>
           )}
-          {mintPrice && <Typography>Mint Price: {mintPrice}</Typography>}
+          {mintPrice && <Typography>Mint Price: {formatUnits(mintPrice, 18)}</Typography>}
           {!!mintedCount && (
             <Typography>Mint count: {mintedCount.toString()}</Typography>
           )}
