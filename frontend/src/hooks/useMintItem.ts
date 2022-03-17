@@ -30,8 +30,11 @@ export const useMintItem = () => {
   const [mintUrl, setMintUrl] = useState<string>('');
 
   useEffect(() => {
+    console.log('This is triggered: ', approveErc20State.status);
     if (approveErc20State.status === 'Success') {
-      mintSend(mintUrl);
+      console.log('mintUrl: ', mintUrl)
+      console.log('This is triggered: ', approveErc20State.status);
+      // mintSend(mintUrl);
     }
   }, [approveErc20State, mintUrl]);
 
@@ -39,11 +42,11 @@ export const useMintItem = () => {
 
   const send = (fullIpfsUrl: string) => {
     setMintUrl(fullIpfsUrl);
-    if (currentAllowance.lt(mintPrice)) {
-      return approveErc20Send(ledgerAddress, mintPrice);
-    }
-    // return approveErc20Send(ledgerAddress, mintPrice);
-    return;
+    // if (currentAllowance.lt(mintPrice)) {
+    //   return approveErc20Send(ledgerAddress, mintPrice);
+    // }
+    return approveErc20Send(ledgerAddress, mintPrice);
+    // return;
   };
 
   useEffect(() => {

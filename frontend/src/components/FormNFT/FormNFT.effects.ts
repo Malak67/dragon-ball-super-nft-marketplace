@@ -21,13 +21,13 @@ export const useFormNFTEffects = () => {
 
   const [uploading, setIsUploading] = useState<boolean>(false);
   const [fileToUpload, setFile] = useState<any>();
-  const [fileUrl, setFileUrl] = useState<string>('');
+  const [ipfsFileUrl, setIpfsFileUrl] = useState<string>('');
   const { state: mintState, send: mintSend } = useMintItem();
   const mintPrice = useMintPrice();
   const tokenBalance = useTokenBalance(tokenAddress, account);
   const [hasEnoughTokens, setHasEnoughTokens] = useState(false);
 
-  const isMinting = mintState.status === "Mining"
+  const isMinting = mintState.status === 'Mining';
 
   const defaultValues: IMintMetadata = {
     name: '',
@@ -64,19 +64,28 @@ export const useFormNFTEffects = () => {
     if (!!tokenBalance && !!mintPrice) {
       const checkHasTokens = async () => {
         setHasEnoughTokens(tokenBalance.gte(mintPrice));
-        console.log('hasEnoughTokens: ', hasEnoughTokens)
+        console.log('hasEnoughTokens: ', hasEnoughTokens);
       };
       checkHasTokens();
     }
   }, [mintPrice, tokenBalance]);
 
   const onSubmit = async (data: IMintMetadata) => {
+    if (!ipfsFileUrl) {
+      setError('fileUrl', {
+        type: 'manual',
+        message: 'Image not uploaded',
+      });
+      return;
+    }
     const mintItem = {
       name: data.name,
       message: data.message,
-      fileUrl: fileUrl,
+      fileUrl: ipfsFileUrl,
     };
+    console.log('FILE URL: ', ipfsFileUrl);
     const uploaded = await ipfsClient.add(JSON.stringify(mintItem));
+    console.log('uploaded: ', uploaded);
     reset();
     return mintSend(`${fullIpfsUrl(uploaded.path)}`)
   };
@@ -100,22 +109,29 @@ export const useFormNFTEffects = () => {
       return;
     }
     setFile(file);
+    console.log('fileToUpload: ', fileToUpload)
   };
 
   const onUpload = async () => {
-    setIsUploading(true);
+
+    if (!fileToUpload) {
+      return;
+    }
+    // setIsUploading(true);
+    console.log('fileToUpload: ', fileToUpload)
     try {
       const uploaded = await ipfsClient.add(fileToUpload);
       const url = `${fullIpfsUrl(uploaded.path)}`;
       console.log('url: ', url);
-      setFileUrl(url);
+      setIpfsFileUrl(url);
     } catch (error) {
+      console.log('Error on uploading: ', error)
       setError('fileUrl', {
         type: 'manual',
         message: `${error}`,
       });
     } finally {
-      setIsUploading(false);
+      // setIsUploading(false);
     }
   };
 
