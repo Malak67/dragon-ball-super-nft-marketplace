@@ -27,7 +27,7 @@ export const TestDapp: FC = () => {
 
   const tokenBalance = useTokenBalance(tokenAddress, account);
   const userBalance = useEtherBalance(account);
-  const ledgerBalance = useTokenBalance(ledgerAddress, account);
+  const nftBalance = useTokenBalance(ledgerAddress, account);
   const mintPrice = useMintPrice();
   const mintedCount = useMintedCount();
   const mintEnabled = useMintEnabled();
@@ -59,23 +59,24 @@ export const TestDapp: FC = () => {
               Token Balance: {formatUnits(tokenBalance, 18)}
             </Typography>
           )}
-          {ledgerBalance && (
-            <Typography>
-              Ledger Balance: {formatUnits(ledgerBalance, 18)}
-            </Typography>
+          {nftBalance && (
+            <Typography>NFT Balance: {formatUnits(nftBalance, 18)}</Typography>
           )}
           {userBalance && (
             <Typography>
-              User Balance: {formatUnits(userBalance, 18)}
+              User Eth Balance:{' '}
+              {Number(formatUnits(userBalance, 18))
+                .toPrecision(6)
+                .replace(/0+$/, '')}
             </Typography>
           )}
-          {mintPrice && <Typography>Mint Price: {formatUnits(mintPrice, 18)}</Typography>}
+          {mintPrice && (
+            <Typography>Mint Price: {formatUnits(mintPrice, 18)}</Typography>
+          )}
           {!!mintedCount && (
             <Typography>Mint count: {mintedCount.toString()}</Typography>
           )}
-          {!!mintEnabled && (
-            <Typography>Mint Enabled: {mintEnabled.toString()}</Typography>
-          )}
+          <Typography>{`Mint Enabled: ${mintEnabled}`}</Typography>
 
           <Box
             sx={{

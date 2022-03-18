@@ -117,7 +117,7 @@ export const useFormNFTEffects = () => {
     if (!fileToUpload) {
       return;
     }
-    // setIsUploading(true);
+    setIsUploading(true);
     console.log('fileToUpload: ', fileToUpload)
     try {
       const uploaded = await ipfsClient.add(fileToUpload);
@@ -131,7 +131,7 @@ export const useFormNFTEffects = () => {
         message: `${error}`,
       });
     } finally {
-      // setIsUploading(false);
+      setIsUploading(false);
     }
   };
 

@@ -18,6 +18,7 @@ export const FormNFT: FC = () => {
             justifyContent: 'start',
             alignItems: 'start',
             gap: 2,
+            padding: '40px'
           }}
         >
           <Box style={{ width: '100%' }}>
