@@ -22,7 +22,6 @@ export interface FormInputFileProps {
   className?: string;
   valueChanged?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
-  onUpload?: () => void;
 }
 
 export const FormInputFile: FC<FormInputFileProps> = ({
@@ -36,7 +35,6 @@ export const FormInputFile: FC<FormInputFileProps> = ({
   buttonText,
   valueChanged,
   disabled = false,
-  onUpload,
 }) => {
   const classes = useStyles();
 
@@ -53,6 +51,7 @@ export const FormInputFile: FC<FormInputFileProps> = ({
             fieldState: { error },
           }) => (
             <Box className={classes.inputWrapper}>
+              <Typography>{label}</Typography>
               {value && <FormHelperText>{value}</FormHelperText>}
               <Box sx={{ width: '100%', display: 'flex', gap: '20px' }}>
                 <input
@@ -71,15 +70,14 @@ export const FormInputFile: FC<FormInputFileProps> = ({
                   }}
                 />
                 <label htmlFor={id}>
-                  <Button variant='outlined' component='span'>
+                  <Button
+                    variant='outlined'
+                    component='span'
+                    disabled={disabled}
+                  >
                     {buttonText}
                   </Button>
                 </label>
-                {value && (
-                  <Button variant='contained' onClick={onUpload}>
-                    Upload
-                  </Button>
-                )}
               </Box>
               {!!error && (
                 <Typography

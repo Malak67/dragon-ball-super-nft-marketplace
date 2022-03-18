@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import { FormNFT, Hero } from '../components';
+import { MintContainer, Hero } from '../components';
 
 export const Home: FC = () => {
   return (
     <div>
       <Hero />
-      <FormNFT />
+      <MintContainer />
     </div>
   );
 };

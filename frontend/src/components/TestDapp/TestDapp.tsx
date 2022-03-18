@@ -20,7 +20,6 @@ export const TestDapp: FC = () => {
   const mountedRef = useRef(true);
 
   const { state, send } = useEnableMint();
-  console.log('state: ', state);
 
   const { account } = useEthers();
   const dbsTokenInfo = useToken(tokenAddress);

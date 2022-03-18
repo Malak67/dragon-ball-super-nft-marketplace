@@ -20,14 +20,12 @@ export const useFormNFTEffects = () => {
   const { account } = useEthers();
 
   const [uploading, setIsUploading] = useState<boolean>(false);
-  const [fileToUpload, setFile] = useState<any>();
   const [ipfsFileUrl, setIpfsFileUrl] = useState<string>('');
   const { state: mintState, send: mintSend } = useMintItem();
   const mintPrice = useMintPrice();
   const tokenBalance = useTokenBalance(tokenAddress, account);
-  const [hasEnoughTokens, setHasEnoughTokens] = useState(false);
-
-  const isMinting = mintState.status === 'Mining';
+  const [hasEnoughTokens, setHasEnoughTokens] = useState<boolean>();
+  const [isMinting, setIsMinting] = useState(false);
 
   const defaultValues: IMintMetadata = {
     name: '',
@@ -61,14 +59,14 @@ export const useFormNFTEffects = () => {
   }, [isSubmitSuccessful, reset]);
 
   useEffect(() => {
-    if (!!tokenBalance && !!mintPrice) {
-      const checkHasTokens = async () => {
-        setHasEnoughTokens(tokenBalance.gte(mintPrice));
-        console.log('hasEnoughTokens: ', hasEnoughTokens);
-      };
-      checkHasTokens();
+    if (tokenBalance !== undefined && mintPrice !== undefined) {
+      setHasEnoughTokens(tokenBalance.gte(mintPrice));
     }
-  }, [mintPrice, tokenBalance]);
+  }, [account, mintPrice, tokenBalance]);
+
+  useEffect(() => {
+    setIsMinting(mintState.status === 'Mining');
+  }, [mintState]);
 
   const onSubmit = async (data: IMintMetadata) => {
     if (!ipfsFileUrl) {
@@ -83,16 +81,13 @@ export const useFormNFTEffects = () => {
       message: data.message,
       fileUrl: ipfsFileUrl,
     };
-    console.log('FILE URL: ', ipfsFileUrl);
     const uploaded = await ipfsClient.add(JSON.stringify(mintItem));
-    console.log('uploaded: ', uploaded);
     reset();
-    return mintSend(`${fullIpfsUrl(uploaded.path)}`)
+    return mintSend(`${fullIpfsUrl(uploaded.path)}`);
   };
 
-  const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file: any = e.target.files?.[0];
-    console.log(typeof file);
     if (!file) {
       setError('fileUrl', {
         type: 'manual',
@@ -108,24 +103,12 @@ export const useFormNFTEffects = () => {
       });
       return;
     }
-    setFile(file);
-    console.log('fileToUpload: ', fileToUpload)
-  };
-
-  const onUpload = async () => {
-
-    if (!fileToUpload) {
-      return;
-    }
     setIsUploading(true);
-    console.log('fileToUpload: ', fileToUpload)
     try {
-      const uploaded = await ipfsClient.add(fileToUpload);
+      const uploaded = await ipfsClient.add(file);
       const url = `${fullIpfsUrl(uploaded.path)}`;
-      console.log('url: ', url);
       setIpfsFileUrl(url);
     } catch (error) {
-      console.log('Error on uploading: ', error)
       setError('fileUrl', {
         type: 'manual',
         message: `${error}`,
@@ -140,7 +123,8 @@ export const useFormNFTEffects = () => {
     handleSubmit,
     onSubmit,
     onFileChange,
-    onUpload,
     uploading,
+    isMinting,
+    hasEnoughTokens,
   };
 };

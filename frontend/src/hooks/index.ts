@@ -5,3 +5,5 @@ export * from './useMintedCount';
 export * from './useMintItem';
 export * from './useTokenAllowance';
 export * from './useTokenApprove';
+export * from './useTokenURI';
+export * from './useTokenOfOwnerByIndex';

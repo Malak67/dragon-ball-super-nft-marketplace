@@ -16,10 +16,7 @@ const config: Config = {
     [ChainId.Kovan]: `${process.env.REACT_APP_KOVAN_RPC_URL}`,
     [ChainId.Ropsten]: `${process.env.REACT_APP_ROPSTEN_URL}`,
   },
-  notifications: {
-    expirationPeriod: 1000,
-    checkInterval: 1000,
-  },
+  multicallVersion: 2,
 };
 
 ReactDOM.render(

@@ -40,7 +40,8 @@ const lightTheme: ThemeOptions = {
           padding: '8px 16px',
           fontSize: '15px',
           lineHeight: '30px',
-          width: 'auto'
+          width: 'auto',
+          minWidth: '200px'
         },
       },
     },
@@ -71,11 +72,11 @@ const lightTheme: ThemeOptions = {
         },
         h4: {
           fontWeight: 400,
-          fontSize: '1.3rem',
+          fontSize: '1.5rem',
         },
         h5: {
           fontWeight: 400,
-          fontSize: '1.1rem',
+          fontSize: '1.2rem',
         },
       },
     },

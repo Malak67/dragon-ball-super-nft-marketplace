@@ -4,3 +4,7 @@ export * from './MainLayout';
 export * from './FormNFT';
 export * from './form';
 export * from './Hero';
+export * from './LoadingText';
+export * from './Mint';
+export * from './DBSCard';
+export * from './MintContainer';

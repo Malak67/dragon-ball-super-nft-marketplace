@@ -30,10 +30,7 @@ export const useMintItem = () => {
   const [mintUrl, setMintUrl] = useState<string>('');
 
   useEffect(() => {
-    console.log('This is triggered: ', approveErc20State.status);
     if (approveErc20State.status === 'Success') {
-      console.log('mintUrl: ', mintUrl);
-      console.log('This is triggered: ', approveErc20State.status);
       mintSend(mintUrl);
     }
   }, [approveErc20State, mintUrl]);
