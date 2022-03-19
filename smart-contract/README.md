@@ -1,13 +1,3 @@
-## 🚨 This project is PRIVATE and will be used only to showcase the experties of the repository owner
-
-
-# 💡 Project idea
-
-## Prerequistes
-
-## How to use it
-
-
 # Advanced Sample Hardhat Project
 
 This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
