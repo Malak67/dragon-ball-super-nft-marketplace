@@ -2,6 +2,8 @@
   "name": "smart-contract",
   "version": "1.0.0",
   "description": "",
+  "license": "UNLICENSED",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "npx hardhat test",
@@ -16,7 +18,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@openzeppelin/hardhat-upgrades": "^1.15.0",
     "@types/chai": "^4.3.0",
