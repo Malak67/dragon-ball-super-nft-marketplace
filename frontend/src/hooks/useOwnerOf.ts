@@ -4,7 +4,7 @@ import DragonBallSuperLedger from '../blockchain/DragonBallSuperLedger.json';
 import { ledgerAddress } from '../constants';
 import { utils } from 'ethers';
 
-export const getOwner = (tokenIndex: number) => {
+export const useOwnerOf = (tokenIndex: number) => {
   const { account } = useEthers();
   const { abi } = DragonBallSuperLedger;
   const dbsLedgerInterface = new utils.Interface(abi);

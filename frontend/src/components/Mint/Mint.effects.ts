@@ -7,7 +7,7 @@ export const useMintEffects = () => {
   const { account } = useEthers();
   const [dbsCard, setDbsCard] = useState<DragonBallSuperCard>();
   const tokenOfOwnerByIndex = useTokenOfOwnerByIndex();
-  const tokenURI = useTokenURI();
+  const tokenURI = useTokenURI(tokenOfOwnerByIndex);
 
   useEffect(() => {
     if (tokenURI && account) {

@@ -10,3 +10,4 @@ export * from './DBSCard';
 export * from './MintContainer';
 export * from './DBSCardList';
 export * from './MintDetails';
+export * from './DBSCardContainer';

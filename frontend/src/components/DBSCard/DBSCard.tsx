@@ -17,7 +17,6 @@ export const DBSCard: FC<DragonBallSuperCard> = ({
   accountAddress,
 }) => {
   const dbsNft = useDBSCardEffects(uri);
-  console.log('dbsNft: ', dbsNft);
   return (
     <Box
       sx={{

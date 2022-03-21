@@ -3,10 +3,9 @@ import { Falsy } from '@usedapp/core/dist/esm/src/model/types';
 import DragonBallSuperLedger from '../blockchain/DragonBallSuperLedger.json';
 import { ledgerAddress } from '../constants';
 import { utils } from 'ethers';
-import { useTokenOfOwnerByIndex } from './useTokenOfOwnerByIndex';
+import { BigNumber } from 'ethers';
 
-export const useTokenURI = () => {
-  const tokenOfOwnerByIndex = useTokenOfOwnerByIndex();
+export const useTokenURI = (tokenOfOwnerByIndex: BigNumber) => {
   const { account } = useEthers();
   const tokenAddress: string | Falsy = ledgerAddress || null;
   const { abi } = DragonBallSuperLedger;
