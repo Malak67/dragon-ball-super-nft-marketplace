@@ -5,6 +5,5 @@ import { useMintEffects } from './Mint.effects';
 
 export const Mint: FC = () => {
   const dbsCard = useMintEffects();
-
   return <Box>{dbsCard && <DBSCard {...dbsCard} />}</Box>;
 };

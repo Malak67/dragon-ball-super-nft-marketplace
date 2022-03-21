@@ -87,7 +87,7 @@ export const useFormNFTEffects = () => {
   };
 
   const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file: any = e.target.files?.[0];
+    const file: File | undefined = e.target.files?.[0];
     if (!file) {
       setError('fileUrl', {
         type: 'manual',
@@ -104,9 +104,18 @@ export const useFormNFTEffects = () => {
       return;
     }
     setIsUploading(true);
+    await uploadToIpfs(file);
+  };
+
+  const uploadToIpfs = async (file: File | undefined) => {
+    if (!file) {
+      return;
+    }
     try {
       const uploaded = await ipfsClient.add(file);
       const url = `${fullIpfsUrl(uploaded.path)}`;
+      console.log('uploaded: ', uploaded)
+      console.log('url: ', url)
       setIpfsFileUrl(url);
     } catch (error) {
       setError('fileUrl', {

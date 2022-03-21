@@ -59,7 +59,6 @@ export const FormInputFile: FC<FormInputFileProps> = ({
                   type='file'
                   id={id}
                   disabled={disabled}
-                  value={value}
                   className={`${className} ${classes.input}`}
                   onBlur={onBlur}
                   onChange={(e) => {

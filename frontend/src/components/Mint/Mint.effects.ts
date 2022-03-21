@@ -1,20 +1,15 @@
-import { useEthers, useTokenBalance } from '@usedapp/core';
+import { useEthers } from '@usedapp/core';
 import { useEffect, useState } from 'react';
-import { ledgerAddress } from '../../constants';
 import { useTokenURI, useTokenOfOwnerByIndex } from '../../hooks';
 import { DragonBallSuperCard } from '../../types';
 
 export const useMintEffects = () => {
   const { account } = useEthers();
   const [dbsCard, setDbsCard] = useState<DragonBallSuperCard>();
-  const nftBalance = useTokenBalance(ledgerAddress, account);
   const tokenOfOwnerByIndex = useTokenOfOwnerByIndex();
   const tokenURI = useTokenURI();
 
   useEffect(() => {
-    if (!nftBalance) {
-      return;
-    }
     if (tokenURI && account) {
       setDbsCard({
         id: tokenOfOwnerByIndex,
@@ -22,7 +17,6 @@ export const useMintEffects = () => {
         accountAddress: account,
       });
     }
-  }, [account]);
-
+  }, [tokenURI, account]);
   return dbsCard;
 };

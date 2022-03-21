@@ -8,3 +8,5 @@ export * from './LoadingText';
 export * from './Mint';
 export * from './DBSCard';
 export * from './MintContainer';
+export * from './DBSCardList';
+export * from './MintDetails';

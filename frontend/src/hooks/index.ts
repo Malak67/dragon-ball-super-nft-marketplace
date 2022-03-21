@@ -7,3 +7,5 @@ export * from './useTokenAllowance';
 export * from './useTokenApprove';
 export * from './useTokenURI';
 export * from './useTokenOfOwnerByIndex';
+export * from './useOwnerURI';
+export * from './useOwnerOf';
