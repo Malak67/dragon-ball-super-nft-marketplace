@@ -17,7 +17,7 @@ export const Mint: FC = () => {
           }}
         >
           <Typography variant='h3' color="primary">
-            Congrats! You are not part of our community!
+            Congrats! You are now part of our community!
           </Typography>
           <DBSCard {...dbsCard} />
         </Box>
