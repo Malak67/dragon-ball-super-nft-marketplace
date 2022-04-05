@@ -19,6 +19,7 @@ export const TestDapp: FC = () => {
   const [isConnected, setIsConnected] = useState(false);
   const mountedRef = useRef(true);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { state, send } = useEnableMint();
 
   const { account } = useEthers();

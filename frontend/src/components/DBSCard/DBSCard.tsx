@@ -13,6 +13,7 @@ import { useDBSCardEffects } from './DBSCard.effects';
 import { useStyles } from './DBSCard.styles';
 
 export const DBSCard: FC<DragonBallSuperCard> = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   id,
   uri,
   accountAddress,

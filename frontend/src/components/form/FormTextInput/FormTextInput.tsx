@@ -5,6 +5,7 @@ import { checkMethod } from '../../../utils';
 
 export interface FormInputTextProps {
   name: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>;
   label: string;
   type: 'text' | 'number' | 'email' | 'password' | 'tel' | 'file';
