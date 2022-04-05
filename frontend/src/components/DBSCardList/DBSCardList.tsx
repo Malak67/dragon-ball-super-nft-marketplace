@@ -16,7 +16,9 @@ export const DBSCardList: FC = () => {
         justifyContent: 'center',
         alignItems: 'center',
         gap: '20px',
-        margin: '20px 0',
+        marginTop: '20px',
+        marginBottom: '20px',
+        padding: '40px',
       }}
     >
       {!mintedCount?.toNumber() ? (

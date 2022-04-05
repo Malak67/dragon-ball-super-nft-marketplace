@@ -37,12 +37,14 @@ export const MintContainer: FC = () => {
       {!isConnected ? (
         <Paper
           sx={{
+            width: '100%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             borderRadius: '0',
             gap: '15px',
-            margin: '20px',
+            marginTop: '20px',
+            marginBottom: '20px',
             padding: '40px',
           }}
         >

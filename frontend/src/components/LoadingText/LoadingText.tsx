@@ -6,13 +6,15 @@ export const LoadingText: FC<{ text: string }> = ({ text }) => {
   return (
     <Paper
       sx={{
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
         gap: '20px',
-        margin: '20px 0',
+        marginTop: '20px',
+        marginBottom: '20px',
+        padding: '40px',
       }}
     >
       <CircularProgress color='secondary' />

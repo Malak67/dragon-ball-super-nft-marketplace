@@ -10,6 +10,7 @@ import { shortenAddress } from '@usedapp/core';
 import React, { FC } from 'react';
 import { DragonBallSuperCard } from '../../types';
 import { useDBSCardEffects } from './DBSCard.effects';
+import { useStyles } from './DBSCard.styles';
 
 export const DBSCard: FC<DragonBallSuperCard> = ({
   id,
@@ -17,6 +18,8 @@ export const DBSCard: FC<DragonBallSuperCard> = ({
   accountAddress,
 }) => {
   const dbsNft = useDBSCardEffects(uri);
+  const classes = useStyles();
+
   return (
     <Box
       sx={{
@@ -28,8 +31,12 @@ export const DBSCard: FC<DragonBallSuperCard> = ({
       my={4}
     >
       <Card sx={{ maxWidth: 440 }}>
-        <CardMedia component='img' image={dbsNft?.fileUrl} />
-        <CardContent>
+        <CardMedia
+          className={classes.media}
+          component='img'
+          image={dbsNft?.fileUrl}
+        />
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant='h5' component='div'>
             {dbsNft?.name}
           </Typography>

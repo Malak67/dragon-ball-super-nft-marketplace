@@ -22,12 +22,14 @@ export const FormNFT: FC = () => {
   return (
     <Paper
       sx={{
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'start',
         alignItems: 'start',
         borderRadius: '0',
-        margin: '20px',
+        marginTop: '20px',
+        marginBottom: '20px',
         padding: '40px',
       }}
     >
